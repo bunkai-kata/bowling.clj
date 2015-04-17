@@ -12,11 +12,9 @@
 
   (it "scores a gutter game"
     (should= 0
-             (let [n 20
-                   pins 0]
-               (-> @g
-                   (roll-many n pins)
-                   score))))
+             (-> @g
+                 (roll-many 20 0)
+                 score)))
 
   (it "scores a singles game"
     (should= 20
