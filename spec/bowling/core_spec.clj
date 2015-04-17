@@ -18,6 +18,6 @@
 
   (it "scores a singles game"
     (should= 20
-             (->> (repeat 20 1)
-                  (reduce #(roll %1 %2) @g)
-                  score))))
+             (-> @g
+                 (roll-many 20 1)
+                 score))))
