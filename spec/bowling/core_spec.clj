@@ -6,13 +6,17 @@
 
   (with g (new-game))
 
+  (defn roll-many [game n pins]
+    (->> (repeat n pins)
+         (reduce #(roll %1 %2) @g)))
+
   (it "scores a gutter game"
     (should= 0
              (let [n 20
                    pins 0]
-               (->> (repeat n pins)
-                    (reduce #(roll %1 %2) @g)
-                    score))))
+               (-> @g
+                   (roll-many n pins)
+                   score))))
 
   (it "scores a singles game"
     (should= 20
