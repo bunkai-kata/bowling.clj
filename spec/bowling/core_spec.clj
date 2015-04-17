@@ -5,4 +5,7 @@
 (describe "scoring a bowling game"
   (it "scores a gutter game"
     (let [g (new-game)]
-      (reduce #(roll %1 %2) g (repeat 20 0)))))
+      (should= 0
+              (->> (repeat 20 0)
+                   (reduce #(roll %1 %2) g)
+                   score)))))
