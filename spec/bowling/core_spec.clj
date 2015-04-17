@@ -8,9 +8,11 @@
 
   (it "scores a gutter game"
     (should= 0
-             (->> (repeat 20 0)
-                  (reduce #(roll %1 %2) @g)
-                  score)))
+             (let [n 20
+                   pins 0]
+               (->> (repeat n pins)
+                    (reduce #(roll %1 %2) @g)
+                    score))))
 
   (it "scores a singles game"
     (should= 20
