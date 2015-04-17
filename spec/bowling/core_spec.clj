@@ -6,6 +6,6 @@
   (it "scores a gutter game"
     (let [g (new-game)]
       (should= 0
-              (->> (repeat 20 0)
-                   (reduce #(roll %1 %2) g)
-                   score)))))
+               (->> (repeat 20 0)
+                    (reduce #(roll %1 %2) g)
+                    score)))))
