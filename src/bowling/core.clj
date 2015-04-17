@@ -2,9 +2,10 @@
   (:gen-class))
 
 (defn score [game]
-  0)
+  game)
 
 (defn roll [game pins]
-  )
+  (+ game pins))
 
-(defn new-game [])
+(defn new-game []
+  0)
